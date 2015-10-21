@@ -1,0 +1,59 @@
+<div class="search-header">
+  <div class="container">
+    <div class="row">
+        <h1 class='span8 offset3'><b>Plus-UI Prototype</b></h1>
+      <div class='span8 offset3'>
+        <a ng-href="about/">&raquo; FAQs and Disclaimers</a>
+      </div>
+    <div class="span6 offset3">
+        <section id="search-bar">
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span2 column-240">&nbsp;</div>
+              <div class="span5">
+                <div ng-controller="MainCtrl" ng-submit="submit(userquery)">
+                  <form class="form-horizontal" name="searchResults">
+                    <div class="input-group">
+                      <input id="generalsearch" type="text" class="form-control" name="userquery"
+                             placeholder="Search the Plus database" ng-model="userquery">
+                      </input>
+                      <div class="input-group-btn">
+                        <button type="submit" name="searchText"
+                                class="btn btn-success submit-primary collapsed form-control">Search
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="span5">&nbsp;</div>
+              </div>
+            </div>
+            </section>
+          </div>
+    </div>
+  </div>
+</div>
+
+<circle-spinner ng-show="showSpinner"></circle-spinner>
+<div ng-show="!initialStatus">
+<div class="container">
+  <div class="main row" role="main">
+    <div class="span10 text-center">
+      <div class="row">
+        <div class="span6">
+          <h4>Welcome to the Plus Prototype.</h4><br>
+          <p>This tool will enable the user to search Plus Data</p>
+          <a ng-href="about/">More about Plus &raquo;</a>
+          <hr>
+          <p class="muted"><strong>Version 1.0</strong> | Total documents: {{totalDocuments}} | <a href="mailto:PlusPOC@uspto.gov"
+          title="Feedback">Send Feedback</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div ng-show="initialStatus">
+  <div ng-include="'views/results.html'"></div>
+</div>

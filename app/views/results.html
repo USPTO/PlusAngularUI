@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="main row">
+    <div class="span2 sidebar media-left" role="navigation">
+      <br>
+      <hr>
+    <div class="facet-panel  col-xs-2" style='padding: 3px; word-break: break-all; word-wrap: break-word;'>
+      <b>CPC Classification</b>
+      <hr>
+        <div ng-repeat="item in cpc_classification" ng-show="cpc_classification">
+          <span class="facet-name"><a href="#" ng-click="add(item.value)">{{item.value}}</a></span>
+          <span class="facet-score" ng-show="item.score">({{item.score}})</span>
+        </div>
+    </div>
+  <div class="media-right" role="main">
+    <div ng-include="'views/demo.html'"></div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="results-header">
+  <h1 class="results-heading lead"><span class="muted">{{numberOfDocs}} Results for <b>{{trimmedText}}</b><strong></strong></span></h1>
+</div>
+<div class="result-columns-headings row">
+  <div class="col-xs-2 cap">ID</div>
+  <div class="col-xs-3 strong">Title</div>
+  <div class="col-xs-3">CPC Classification</div>
+  <div class="col-xs-1"></div>
+  <div class="col-xs-3">USPC Classification</div>
+</div>
+<div infinite-scroll="loadDetails()">
+  <div class="row hoverDiv" ng-show="docList" id="docList" ng-repeat-start="u in allDocuments track by $index" ng-click="showDetail(u)" ng-class-odd="'alt'"
+     ng-controller="MainCtrl">
+  <div class="col-xs-2 cap">{{u.id}}</div>
+  <div class="col-xs-3 strong">{{u.title}}</div>
+  <div class="col-xs-3" style='padding: 3px; word-break: break-all; word-wrap: break-word;'>{{u.cpc_classification.join(',')}}</div>
+  <div class="col-xs-1"></div>
+  <div class="col-xs-3 result-header" style='padding: 3px; word-break: break-all; word-wrap: break-word;'>
+    {{u.uspc_classification.join(',')}}   </div>
+</div>
+<div class="row" ng-repeat-end="" ng-show="active==u.id" ng-class-odd="'alt'">
+  <div class="col-md-12 small">
+    <label><br>Abstract:</label> {{u.abstract}}<br><br>
+    <a href="additionalDetails/" class="button" ng-click="additionalDetails(u)">View Details &raquo;</a>
+    <br><br>
+  </div>
+</div>
+</div>
